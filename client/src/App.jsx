@@ -1,33 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
+import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { Home } from './components/Home/Home';
+// import {Services} from './pages/admin/services'
+// import ProtectedRoutes from './pages/ProtectedRoutes/protectedRoutes';
+
+
+
+
+// Set up an Apollo client to point towards graphql backend
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3002/graphql', // GraphQL endpoint
+});
+
+// context for JWT
+const authLink = setContext((_, { headers }) => {
+  // Get token from local storage
+  const token = localStorage.getItem('id_token');
+  // Return the headers to the context
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+// httpLink defines where the GraphQL server is hosted. 
+// authLink used for setting any headers that need to be attached to your requests.
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" index element={<Home />} />
+          {/* create Service and booking routed in another route called protected routes */}
+        {/* <Route path="/services" element={<ProtectedRoutes element={<Residential />} />} /> */}
+          {/* Appointments page Route */}
+        {/* <Route path="/booking" element={<ProtectedRoutes element={<commercial />} />} /> */}
+
+          {/* Reviews page Route */}
+          {/* <Route path="/reviews" element={<ProtectedRoutes element={<Reviews />} />} /> */}
+
+          {/* Privacy Policy Route */}
+          {/* <Route path="/privacy" element={<PrivacyPolicy />} /> */}
+          {/* Terms of use Route */}
+          {/* <Route path="/terms" element={<TermsAndConditions />} /> */}
+      </>
+      )
+    )
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     
+      <ApolloProvider client={client}>
+
+
+        
+          <RouterProvider router={router}/>
+        
+
+
+      </ApolloProvider>
+
     </>
   )
 }
