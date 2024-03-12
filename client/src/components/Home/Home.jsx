@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 import {Navbar} from '../Navbar/Navbar';
+import {ImageCarousel} from '../Carousel/Carousel';
 // import {Carousel} from './components/Carousel';
 // import {Services} from './components/Services';
 // import {About} from './components/About';
@@ -15,7 +16,7 @@ export const Home = () => {
         <>
     <Box>
       <Navbar />
-      {/* <Carousel /> */}
+      <ImageCarousel />
       <Container maxW="container.lg" width={'100vw'} mt={8}>
         <Box textAlign="center">
           <Heading as="h1" size="xl" mt={4}>
