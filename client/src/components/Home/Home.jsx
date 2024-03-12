@@ -16,7 +16,7 @@ export const Home = () => {
     <Box>
       <Navbar />
       {/* <Carousel /> */}
-      <Container maxW="container.lg" mt={8}>
+      <Container maxW="container.lg" width={'100vw'} mt={8}>
         <Box textAlign="center">
           <Heading as="h1" size="xl" mt={4}>
             We apologize for any inconvenience, but our website is currently undergoing scheduled maintenance to ensure optimal performance and user experience. Please check back shortly. Thank you for your patience!

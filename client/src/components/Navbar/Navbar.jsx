@@ -1,25 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
-  Box,
-  Flex,
-  Spacer,
-  Image,
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Input,
-  InputGroup,
-  InputRightElement,
+    Box,
+    Flex,
+    Spacer,
+    Image,
+    IconButton,
+    Button,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    Input,
+    InputGroup,
+    InputRightElement,
+    Drawer,
+    useBreakpointValue,
 } from '@chakra-ui/react';
+import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 export const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const CityCodeButtonText = useBreakpointValue({ base: "Permits & City Code", lg: "Permits & Code Management", xl: "Permits & City Code Management" });
+    const ContactButtonText = useBreakpointValue({ base: "Contact", lg: "Contact Us", xl: "Contact Us" });
+    
+    const toggleDrawer = () => setIsOpen(!isOpen);
+    const onClose = () => setIsOpen(false);
   return (
-    <Box bg="gray.100" py={4}>
-      <Flex  mx={2} >
+    <>
+    <Box bg="gray.100" display="flex" py={4}>
+      <Flex mx={2} >
         <Box>
           <a href="index.html">
             <Image src="assets/LOGO.jpg" alt="Logo" />
@@ -27,7 +38,7 @@ export const Navbar = () => {
         </Box>
         <Spacer />
         <Box display={{ base: 'none', md: 'flex' }} alignItems="center" justifyContent={'space-evenly'}>
-          <Button variant="ghost" pr={7} href="index.html">
+          <Button variant="ghost" pr={7} fontSize={{ base: '12px', sm: '14px', md: '16px' }} href="index.html">
             Home
           </Button>
           <Menu >
@@ -65,13 +76,13 @@ export const Navbar = () => {
             </MenuList>
           </Menu>
           <Button variant="ghost" mr={24} href="PermitsandCityCodeManagement/index.html">
-            Permits & City Code Management
+          {CityCodeButtonText}
           </Button>
           <Button variant="ghost" mr={12} href="AvailableHomes/index.html">
             Available Homes
           </Button>
           <Button variant="ghost" mr={4} href="ContactUS/index.html">
-            Contact Us
+            {ContactButtonText}
           </Button>
           <InputGroup size="sm">
             <Input type="search" placeholder="Search" />
@@ -85,8 +96,14 @@ export const Navbar = () => {
           icon={<HamburgerIcon />}
           variant="ghost"
           aria-label="Toggle Navigation"
+          onClick={toggleDrawer}
         />
       </Flex>
+
+      <Drawer isOpen={isOpen} placement="top" onClose={onClose} >
+        {isOpen && <Sidebar />}
+        </Drawer>
     </Box>
+    </>
   );
 };
