@@ -14,28 +14,29 @@ import {
   InputGroup,
   InputRightElement,
 } from '@chakra-ui/react';
-import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 export const Navbar = () => {
   return (
     <Box bg="gray.100" py={4}>
-      <Flex maxW="container.lg" mx="auto" align="center">
+      <Flex  mx={2} >
         <Box>
           <a href="index.html">
             <Image src="assets/LOGO.jpg" alt="Logo" />
           </a>
         </Box>
         <Spacer />
-        <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
-          <Button variant="ghost" mr={4} href="index.html">
+        <Box display={{ base: 'none', md: 'flex' }} alignItems="center" justifyContent={'space-evenly'}>
+          <Button variant="ghost" pr={7} href="index.html">
             Home
           </Button>
-          <Menu>
-            <MenuButton as={Button} variant="ghost" mr={4}>
+          <Menu >
+            <MenuButton as={Button} variant="ghost" pr={14} width={'auto'}>
               Residential
+              <ChevronDownIcon/>
             </MenuButton>
-            <MenuList>
-              <MenuItem href="FullRehabs/index.html">Full Rehabs</MenuItem>
+            <MenuList >
+              <MenuItem href="FullRehabs/index.html" >Full Rehabs</MenuItem>
               <MenuItem href="InvestmentPropertyAnalysis/index.html">Investment Property Analysis</MenuItem>
               <MenuItem href="Kitchen/index.html">Kitchen</MenuItem>
               <MenuItem href="Bathroom/index.html">Bathroom</MenuItem>
@@ -43,8 +44,9 @@ export const Navbar = () => {
             </MenuList>
           </Menu>
           <Menu>
-            <MenuButton as={Button} variant="ghost" mr={4}>
+            <MenuButton as={Button} variant="ghost" pr={16}>
               Commercial
+              <ChevronDownIcon />
             </MenuButton>
             <MenuList>
               <MenuItem href="HotelProjectImprovementPlans/index.html">Hotel Project Improvement Plans</MenuItem>
@@ -52,8 +54,9 @@ export const Navbar = () => {
             </MenuList>
           </Menu>
           <Menu>
-            <MenuButton as={Button} variant="ghost" mr={4}>
+            <MenuButton as={Button} variant="ghost" mr={20}>
               Info
+              <ChevronDownIcon />
             </MenuButton>
             <MenuList>
               <MenuItem href="About/index.html">About Us</MenuItem>
@@ -61,10 +64,10 @@ export const Navbar = () => {
               <MenuItem href="Blog/index.html">Blog</MenuItem>
             </MenuList>
           </Menu>
-          <Button variant="ghost" mr={4} href="PermitsandCityCodeManagement/index.html">
-            Permits and City Code Management
+          <Button variant="ghost" mr={24} href="PermitsandCityCodeManagement/index.html">
+            Permits & City Code Management
           </Button>
-          <Button variant="ghost" mr={4} href="AvailableHomes/index.html">
+          <Button variant="ghost" mr={12} href="AvailableHomes/index.html">
             Available Homes
           </Button>
           <Button variant="ghost" mr={4} href="ContactUS/index.html">
