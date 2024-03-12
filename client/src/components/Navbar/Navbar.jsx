@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import logo from '../../assets/images/LOGO.jpg';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false); // State to manage the drawer's open/close status.
@@ -36,14 +37,14 @@ export const Navbar = () => {
   return (
     <>
     <Box bg="gray.100" display="flex" py={4}>
-      <Flex mx={2} >
-        <Box>
+      <Flex mx={2} alignItems='center'>
+        <Box minWidth="150px" height="auto">
           <a href="index.html">
-            <Image src="assets/LOGO.jpg" alt="Logo" />
+            <Image src={logo} alt="Logo" objectFit="contain" />
           </a>
         </Box>
         <Spacer />
-        <Box display={{ base: 'none', md: 'flex' }} alignItems="center" justifyContent={'space-evenly'}>
+        <Box display={{ base: 'none', md: 'flex' }} flexGrow={1} alignItems="center" justifyContent={'space-evenly'}>
           <Button variant="ghost" pr={7} fontSize={{ base: '12px', sm: '14px', md: '16px' }} href="index.html">
             Home
           </Button>
