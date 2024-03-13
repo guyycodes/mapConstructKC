@@ -5,7 +5,7 @@ import { FULL_REHABS,
     GALLERY, BLOG, CITY_CODE, 
     AVALIABLE_HOMES, 
     CONTACT,
-    SEARCH } from './actions/actions'
+    SEARCH } from '../actions/actions'
 
 export const reducer = (state, action) => {
     switch (action.type){

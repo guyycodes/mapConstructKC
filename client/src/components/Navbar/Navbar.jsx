@@ -28,39 +28,29 @@ import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import logo from '../../assets/images/LOGO.jpg';
 import { useRouteContext } from '../util/routingContext/routeContext';
-import  { reducer } from '../util/reducers'
 
+// The Navbar functional component definition
 export const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false); // State to manage the drawer's open/close status.
-    const [selectedRoute, setRoute] = useState(null);
+  // State hook to manage open/close status of a sidebar/drawer
+    const [isOpen, setIsOpen] = useState(false);
 
-    // routing context 
-    const initialState = useRouteContext();
+   // Accessing the context's dispatch function to update global state its essential to use dispatch from the context or it will only update locally
+    const { dispatch } = useRouteContext();
 
-    // setting up the reducer hook for routing state == initialState
-    const [state, dispatch] = useReducer(reducer, initialState);
-
-    // Responsive text for the Permits & City Code Management button. Text changes based on the screen size.
+    // Hook to get responsive text values based on the current viewport size for specific UI elements
     const CityCodeButtonText = useBreakpointValue({ base: "Permits & City Code", lg: "Permits & Code Management", xl: "Permits & City Code Management" });
-    
-    // Responsive text for the Contact Us button. Though it doesn't change in this example, the setup allows for easy adjustments.
     const ContactButtonText = useBreakpointValue({ base: "Contact", lg: "Contact Us", xl: "Contact Us" });
     
-    // Function to toggle the sidebar drawer.
+    // Function to toggle the sidebar/drawer's open/close status
     const toggleDrawer = () => setIsOpen(!isOpen);
 
-    // Function to close the sidebar drawer.
+    // Function to close the sidebar/drawer
     const onClose = () => setIsOpen(false);
 
-    useEffect(()=>{
-      
-      console.log(state)
-  
-    },[state])
-
+    // Function to handle routing based on the navbar item clicked
     const handleRouting = (clickedText) => {
-      console.log("clicked: " + clickedText);
-  
+      // Dispatch actions for each possible navigation item - setting the state in the global context
+      // Each dispatch checks if the clicked item matches a specific route, and updates the global state accordingly
       dispatch({ type: FULL_REHABS, payload: clickedText === 'Full_Rehabs' ? 1 : 0 });
       dispatch({ type: INVESTMENT_PROPERTY_ANALYSIS, payload: clickedText === 'Investment_Property_Analysis' ? 1 : 0 });
       dispatch({ type: KITCHEN, payload: clickedText === 'Kitchen' ? 1 : 0 });
@@ -75,9 +65,8 @@ export const Navbar = () => {
       dispatch({ type: AVALIABLE_HOMES, payload: clickedText === 'Available_Homes' ? 1 : 0 });
       dispatch({ type: CONTACT, payload: clickedText === 'Contact' ? 1 : 0 });
       dispatch({ type: SEARCH, payload: clickedText === 'Search' ? 1 : 0 });
-  
-      setRoute(clickedText); // Update state with clicked menu item text
   };
+  
   return (
     <>
     <Box bg="gray.100" display="flex" py={4} zIndex={3}>

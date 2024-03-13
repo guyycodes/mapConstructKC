@@ -36,11 +36,10 @@ const client = new ApolloClient({
 });
 
 function App() {
-  // routing context
+// routing context this allows access to routes selected in all parts of the app 
+// all routes that use 'const { dispatch } = useRouteContext();' and dispatch their routes to the context API, will be able to controll routing
   const routeContext = useRouteContext();
 
-  // setting up the state hook for routing state
-  // const [state, setState] = useState(routeContext);
 
 
   useEffect(() => {
