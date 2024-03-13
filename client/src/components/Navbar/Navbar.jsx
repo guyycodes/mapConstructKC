@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer, useEffect} from 'react';
 import {
     Box,
     Flex,
@@ -16,12 +16,29 @@ import {
     Drawer,
     useBreakpointValue, // Importing the useBreakpointValue hook for responsive design.
 } from '@chakra-ui/react';
+import { FULL_REHABS, 
+  INVESTMENT_PROPERTY_ANALYSIS, 
+  KITCHEN, BATHROOM, ROOM_ADDITION, HOTEL_PROJECT_IMPROVEMENT_PLANS, 
+  DELINQUENT_SALES_TAX_AUDITION, ABOUT_US, 
+  GALLERY, BLOG, CITY_CODE, 
+  AVALIABLE_HOMES, 
+  CONTACT,
+  SEARCH  } from '../util/actions/actions';
 import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import logo from '../../assets/images/LOGO.jpg';
+import { useRouteContext } from '../util/routingContext/routeContext';
+import  { reducer } from '../util/reducers'
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false); // State to manage the drawer's open/close status.
+    const [selectedRoute, setRoute] = useState(null);
+
+    // routing context 
+    const initialState = useRouteContext();
+
+    // setting up the reducer hook for routing state == initialState
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     // Responsive text for the Permits & City Code Management button. Text changes based on the screen size.
     const CityCodeButtonText = useBreakpointValue({ base: "Permits & City Code", lg: "Permits & Code Management", xl: "Permits & City Code Management" });
@@ -31,12 +48,39 @@ export const Navbar = () => {
     
     // Function to toggle the sidebar drawer.
     const toggleDrawer = () => setIsOpen(!isOpen);
+
     // Function to close the sidebar drawer.
     const onClose = () => setIsOpen(false);
 
+    useEffect(()=>{
+      
+      console.log(state)
+  
+    },[state])
+
+    const handleRouting = (clickedText) => {
+      console.log("clicked: " + clickedText);
+  
+      dispatch({ type: FULL_REHABS, payload: clickedText === 'Full_Rehabs' ? 1 : 0 });
+      dispatch({ type: INVESTMENT_PROPERTY_ANALYSIS, payload: clickedText === 'Investment_Property_Analysis' ? 1 : 0 });
+      dispatch({ type: KITCHEN, payload: clickedText === 'Kitchen' ? 1 : 0 });
+      dispatch({ type: BATHROOM, payload: clickedText === 'Bathroom' ? 1 : 0 });
+      dispatch({ type: ROOM_ADDITION, payload: clickedText === 'Room_Addition' ? 1 : 0 });
+      dispatch({ type: HOTEL_PROJECT_IMPROVEMENT_PLANS, payload: clickedText === 'Hotel_Project_Improvement_Plans' ? 1 : 0 });
+      dispatch({ type: DELINQUENT_SALES_TAX_AUDITION, payload: clickedText === 'Delinquent_Sales_Tax_Audition' ? 1 : 0 });
+      dispatch({ type: ABOUT_US, payload: clickedText === 'About_Us' ? 1 : 0 });
+      dispatch({ type: GALLERY, payload: clickedText === 'Gallery' ? 1 : 0 });
+      dispatch({ type: BLOG, payload: clickedText === 'Blog' ? 1 : 0 });
+      dispatch({ type: CITY_CODE, payload: clickedText === 'City_Code' ? 1 : 0 });
+      dispatch({ type: AVALIABLE_HOMES, payload: clickedText === 'Available_Homes' ? 1 : 0 });
+      dispatch({ type: CONTACT, payload: clickedText === 'Contact' ? 1 : 0 });
+      dispatch({ type: SEARCH, payload: clickedText === 'Search' ? 1 : 0 });
+  
+      setRoute(clickedText); // Update state with clicked menu item text
+  };
   return (
     <>
-    <Box bg="gray.100" display="flex" py={4}>
+    <Box bg="gray.100" display="flex" py={4} zIndex={3}>
       <Flex mx={2} alignItems='center'>
         <Box minWidth="150px" height="auto">
           <a href="index.html">
@@ -49,17 +93,18 @@ export const Navbar = () => {
             Home
           </Button>
           {/* Residential menu with dropdown options. */}
-          <Menu >
+          <Menu>
             <MenuButton as={Button} variant="ghost" pr={14} width={'auto'}>
               Residential
               <ChevronDownIcon/>
             </MenuButton>
-            <MenuList >
-              <MenuItem href="FullRehabs/index.html" >Full Rehabs</MenuItem>
-              <MenuItem href="InvestmentPropertyAnalysis/index.html">Investment Property Analysis</MenuItem>
-              <MenuItem href="Kitchen/index.html">Kitchen</MenuItem>
-              <MenuItem href="Bathroom/index.html">Bathroom</MenuItem>
-              <MenuItem href="RoomAddition/index.html">Room Addition</MenuItem>
+            <MenuList width={'fit-content'}>
+          {/* Pass the menu item text directly to the click handler */}
+        <MenuItem onClick={() => handleRouting("Full_Rehabs")}>Full Rehabs</MenuItem>
+        <MenuItem onClick={() => handleRouting("Investment_Property_Analysis")}>Investment Property Analysis</MenuItem>
+        <MenuItem onClick={() => handleRouting("Kitchen")}>Kitchen</MenuItem>
+        <MenuItem onClick={() => handleRouting("Bathroom")}>Bathroom</MenuItem>
+        <MenuItem onClick={() => handleRouting("Room_Addition")}>Room Addition</MenuItem>
             </MenuList>
           </Menu>
           <Menu>
@@ -68,8 +113,8 @@ export const Navbar = () => {
               <ChevronDownIcon />
             </MenuButton>
             <MenuList>
-              <MenuItem href="HotelProjectImprovementPlans/index.html">Hotel Project Improvement Plans</MenuItem>
-              <MenuItem href="DelinquentSalesTaxAudition/index.html">Delinquent Sales Tax Audition</MenuItem>
+              <MenuItem onClick={() => handleRouting("Hotel_Project_Improvement_Plans")}>Hotel Project Improvement Plans</MenuItem>
+              <MenuItem onClick={() => handleRouting("Delinquent_Sales_Tax_Audition")}>Delinquent Sales Tax Audition</MenuItem>
             </MenuList>
           </Menu>
           <Menu>
@@ -78,23 +123,23 @@ export const Navbar = () => {
               <ChevronDownIcon />
             </MenuButton>
             <MenuList>
-              <MenuItem href="About/index.html">About Us</MenuItem>
-              <MenuItem href="Gallery/index.html">Gallery</MenuItem>
-              <MenuItem href="Blog/index.html">Blog</MenuItem>
+              <MenuItem onClick={() => handleRouting("About_Us")}>About Us</MenuItem>
+              <MenuItem onClick={() => handleRouting("Gallery")}>Gallery</MenuItem>
+              <MenuItem onClick={() => handleRouting("Blog")}>Blog</MenuItem>
             </MenuList>
           </Menu>
           {/* Additional menus and buttons follow a similar pattern. */}
-          <Button variant="ghost" mr={24} href="PermitsandCityCodeManagement/index.html">
+          <Button variant="ghost" mr={24} onClick={() => handleRouting("City_Code")}>
           {CityCodeButtonText}
           </Button>
-          <Button variant="ghost" mr={12} href="AvailableHomes/index.html">
+          <Button variant="ghost" mr={12} onClick={() => handleRouting("Available_Homes")}>
             Available Homes
           </Button>
-          <Button variant="ghost" mr={4} href="ContactUS/index.html">
+          <Button variant="ghost" mr={4} onClick={() => handleRouting("Contact")}>
             {ContactButtonText}
           </Button>
           <InputGroup size="sm">
-            <Input type="search" placeholder="Search" />
+            <Input type="search" onClick={() => handleRouting("Search")} placeholder="Search" />
             <InputRightElement>
               <IconButton icon={<SearchIcon />} size="sm" variant="ghost" />
             </InputRightElement>

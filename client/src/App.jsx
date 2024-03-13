@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect,useContext,useState } from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Home } from './components/Home/Home';
+import { useRouteContext } from './components/util/routingContext/routeContext';
 // import {Services} from './pages/admin/services'
 // import ProtectedRoutes from './pages/ProtectedRoutes/protectedRoutes';
 
@@ -35,7 +36,17 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [count, setCount] = useState(0)
+  // routing context
+  const routeContext = useRouteContext();
+
+  // setting up the state hook for routing state
+  // const [state, setState] = useState(routeContext);
+
+
+  useEffect(() => {
+    console.log("useEffect state: ", routeContext);
+  }, [routeContext]);
+
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -62,7 +73,7 @@ function App() {
       <ApolloProvider client={client}>
 
 
-        
+       
           <RouterProvider router={router}/>
         
 

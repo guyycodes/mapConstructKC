@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid, Image, Heading, Text, AspectRatio } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+
 import bathroomRemodel from '../../assets/images/imageReveal/bathroomRemodel.JPG';
 import bathroomTile from '../../assets/images/imageReveal/bathroomTile.JPG';
 import customDeck from '../../assets/images/imageReveal/customDeck.JPG';
@@ -70,7 +71,7 @@ export const WorkSection = () => {
           });
           // Clear the set to allow for new animations.
           setAnimateSet(new Set());
-        }, 500); // This delay matches the fade-out animation
+        }, 750); // This delay matches the fade-out animation
       }
     };
     // Start the initial animation cycle and set up an interval for continuous cycling.
@@ -103,7 +104,6 @@ export const WorkSection = () => {
         while (selectedImages.length < numToSelect && i < shuffled.length) {
             const path = shuffled[i];
             if (path && path.trim() !== '') {
-            console.log('wtf')
             selectedImages.push(path);
         }
         i++;
@@ -123,14 +123,17 @@ export const WorkSection = () => {
         {currentSet.map(({ path, key }, index) => (
           <AnimatePresence key={key}>
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{
-                opacity: animateSet.has(index) ? 0.1 : 1, // .has is a method of the set() object, we are checking for the randomly selected index
-                x: 0,
-              }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.5 }}
+            //***TO-DO fix the timing issue, it causes a bug on page refresh */
+
+            //   initial={{ opacity: 0, x: -100 }}
+            //   animate={{
+            //     opacity: animateSet.has(index) ? 0.1 : 1, // .has is a method of the set() object, we are checking for the randomly selected index
+            //     // x: 0,
+            //   }}
+            //   exit={{ opacity: 100, x: 0 }}
+            //   transition={{ duration: 0.5 }}
             >
+                
             {/* AspectRatio keeps the images in a correct aspect ratio. */}
               <AspectRatio ratio={1}>
                 <Image

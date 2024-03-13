@@ -14,10 +14,12 @@ const Theme = extendTheme({
         bg: props.colorMode === 'dark' ? 'gray.800' : 'gray.50',
         color: props.colorMode === 'dark' ? 'white' : 'black',
       },
-      'html, body, #root, div': {
-        boxSizing: 'border-box',
-        width: '100%',
-      },
+    //   'html, body, #root, div': {
+    //     boxSizing: 'border-box',
+    //     margin: "0px",
+    //     border: "0px",
+    //     width: '100%',
+    //   },
       // more global styles here
     }),
   },
