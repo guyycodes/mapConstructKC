@@ -1,6 +1,6 @@
 import React, { useContext, useReducer } from "react";
 import { reducer } from "./reducers";
-
+// here we are creating a context to pass around the app
 const RouteContext = React.createContext()
 
 export const useRouteContext = () => useContext(RouteContext)
