@@ -8,9 +8,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-import image1 from '../../assets/images/bobcat.JPG';
-import image2 from '../../assets/images/porchBefore.jpg';
-import image3 from '../../assets/images/porchAfter.JPG';
+import image1 from '/assets/images/bobcat.JPG';
+import image2 from '/assets/images/porchBefore.jpg';
+import image3 from '/assets/images/porchAfter.JPG';
 
 export const ImageCarousel = () => {
   const slides = [

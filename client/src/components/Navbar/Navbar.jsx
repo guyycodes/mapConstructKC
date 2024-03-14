@@ -26,7 +26,7 @@ import { FULL_REHABS,
   SEARCH  } from '../../util/actions/actions';
 import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
-import logo from '../../assets/images/LOGO.jpg';
+import logo from '/assets/images/LOGO.jpg';
 import { useRouteContext } from '../../util/routingContext/routeContext';
 
 // The Navbar functional component definition

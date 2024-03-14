@@ -3,21 +3,21 @@ import { Box, Grid, Image, Heading, Text, AspectRatio } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 
-import bathroomRemodel from '../../assets/images/imageReveal/bathroomRemodel.JPG';
-import bathroomTile from '../../assets/images/imageReveal/bathroomTile.JPG';
-import customDeck from '../../assets/images/imageReveal/customDeck.JPG';
-import customKitchen from '../../assets/images/imageReveal/customKitchen.JPG';
-import customShower from '../../assets/images/imageReveal/customShower.JPG';
-import excavation from '../../assets/images/imageReveal/excavation.JPG';
-import swimmingPool from '../../assets/images/imageReveal/swimmingPool.JPG';
-import tvFireplace from '../../assets/images/imageReveal/TV_fireplace.JPG';
+import bathroomRemodel from '/assets/images/imageReveal/bathroomRemodel.JPG';
+import bathroomTile from '/assets/images/imageReveal/bathroomTile.JPG';
+import customDeck from '/assets/images/imageReveal/customDeck.JPG';
+import customKitchen from '/assets/images/imageReveal/customKitchen.JPG';
+import customShower from '/assets/images/imageReveal/customShower.JPG';
+import excavation from '/assets/images/imageReveal/excavation.JPG';
+import swimmingPool from '/assets/images/imageReveal/swimmingPool.JPG';
+import tvFireplace from '/assets/images/imageReveal/TV_fireplace.JPG';
 
-import path1 from '../../assets/images/imageReveal/imageReveal2/bears.jpg';
-import path2 from '../../assets/images/imageReveal/imageReveal2/lions.jpg';
-import path3 from '../../assets/images/imageReveal/imageReveal2/porchAfter.JPG';
-import path4 from '../../assets/images/imageReveal/imageReveal2/porchBefore.jpg';
-import path5 from '../../assets/images/imageReveal/imageReveal2/skidster.JPG';
-import path6 from '../../assets/images/imageReveal/imageReveal2/tiger.jpg';
+import path1 from '/assets/images/imageReveal/imageReveal2/bears.jpg';
+import path2 from '/assets/images/imageReveal/imageReveal2/lions.jpg';
+import path3 from '/assets/images/imageReveal/imageReveal2/porchAfter.JPG';
+import path4 from '/assets/images/imageReveal/imageReveal2/porchBefore.jpg';
+import path5 from '/assets/images/imageReveal/imageReveal2/skidster.JPG';
+import path6 from '/assets/images/imageReveal/imageReveal2/tiger.jpg';
 
 // Initial sets of images to be displayed.
 const imagePaths = [
@@ -133,7 +133,7 @@ export const WorkSection = () => {
             //   exit={{ opacity: 100, x: 0 }}
             //   transition={{ duration: 0.5 }}
             >
-                
+
             {/* AspectRatio keeps the images in a correct aspect ratio. */}
               <AspectRatio ratio={1}>
                 <Image

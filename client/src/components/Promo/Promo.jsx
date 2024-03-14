@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, Image, Stack } from '@chakra-ui/react';
-import logo from '../../assets/images/logo2.png';
+import logo from '/assets/images/logo2.png';
 
 export const PromoSection = () => {
   return (
