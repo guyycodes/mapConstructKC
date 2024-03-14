@@ -1,7 +1,7 @@
-import React, { useEffect,useContext,useState } from 'react'
+import React, { useEffect} from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+// import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+// import { setContext } from '@apollo/client/link/context';
 import { Home } from './components/Home/Home';
 import { useRouteContext } from './util/routingContext/routeContext';
 // import {Services} from './pages/admin/services'
@@ -10,30 +10,30 @@ import { useRouteContext } from './util/routingContext/routeContext';
 
 
 
-// Set up an Apollo client to point towards graphql backend
-const httpLink = createHttpLink({
-  uri: 'http://localhost:3002/graphql', // GraphQL endpoint
-});
+  // Set up an Apollo client to point towards graphql backend
+// const httpLink = createHttpLink({
+//   uri: 'http://localhost:3002/graphql', // GraphQL endpoint
+// });
 
-// context for JWT
-const authLink = setContext((_, { headers }) => {
+  // context for JWT
+// const authLink = setContext((_, { headers }) => {
   // Get token from local storage
-  const token = localStorage.getItem('id_token');
+// const token = localStorage.getItem('id_token');
   // Return the headers to the context
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
 
 // httpLink defines where the GraphQL server is hosted. 
 // authLink used for setting any headers that need to be attached to your requests.
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
 function App() {
 // routing context this allows access to routes selected in all parts of the app 
@@ -69,7 +69,7 @@ function App() {
   return (
     <>
      
-      <ApolloProvider client={client}>
+      {/* <ApolloProvider client={client}> */}
 
 
        
@@ -77,7 +77,7 @@ function App() {
         
 
 
-      </ApolloProvider>
+      {/* </ApolloProvider> */}
 
     </>
   )
