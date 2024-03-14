@@ -1,6 +1,7 @@
 {
   "name": "mapconstructkc",
   "private": true,
+  "homepage": "https://guyycodes.github.io/mapConstructKC/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
