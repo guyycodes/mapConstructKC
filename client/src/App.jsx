@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useState} from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 // import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context';
@@ -39,10 +39,25 @@ function App() {
 // routing context this allows access to routes selected in all parts of the app 
 // all routes that use 'const { dispatch } = useRouteContext();' and dispatch their routes to the context API, will be able to controll routing
   const routeContext = useRouteContext();
+  
+  const [currentView, setCurrentView] = useState('/');
 
-
+  const printElementWithValueOne = (context) => {
+    // Loop through each property in the object
+    for (const key in context) {
+        // Check if the property's value is strictly equal to 1
+        if (context[key] === 1) {
+          console.log(`/${key}`)
+            setCurrentView(`/${key}`)
+        }
+    }
+};
 
   useEffect(() => {
+
+  // Call the function with your context
+  printElementWithValueOne(routeContext);
+    // setCurrentView(url);
     console.log("useEffect state: ", routeContext);
   }, [routeContext]);
 
@@ -52,10 +67,21 @@ function App() {
       <>
         <Route path="/" index element={<Home />} />
           {/* create Service and booking routed in another route called protected routes */}
-        {/* <Route path="/services" element={<ProtectedRoutes element={<Residential />} />} /> */}
+          <Route path="/fullRehabs" index element={<Home />} />
           {/* Appointments page Route */}
-        {/* <Route path="/booking" element={<ProtectedRoutes element={<commercial />} />} /> */}
-
+          <Route path="/investmentPropertyAnalysis" index element={<Home />} />
+          <Route path="/kitchen" index element={<Home />} />
+          <Route path="/bathroom" index element={<Home />} />
+          <Route path="/roomAddition" index element={<Home />} />
+          <Route path="/hotelProjectImprovmentPlans" index element={<Home />} />
+          <Route path="/delinquentSalesTaxAudition" index element={<Home />} />
+          <Route path="/aboutUs" index element={<Home />} />
+          <Route path="/gallery" index element={<Home />} />
+          <Route path="/blog" index element={<Home />} />
+          <Route path="/cityCode" index element={<Home />} />
+          <Route path="/avaliableHomes" index element={<Home />} />
+          <Route path="/contact" index element={<Home />} />
+          <Route path="/search" index element={<Home />} />
           {/* Reviews page Route */}
           {/* <Route path="/reviews" element={<ProtectedRoutes element={<Reviews />} />} /> */}
 
@@ -72,8 +98,22 @@ function App() {
       {/* <ApolloProvider client={client}> */}
 
 
-       
-          <RouterProvider router={router}/>
+      {currentView === '/' && <Home/>}
+      {currentView === '/fullRehabs' && <Home/>}
+      {currentView === '/investmentPropertyAnalysis' && <Home/>}
+      {currentView === '/kitchen' && <Home/>}
+      {currentView === '/bathroom' && <Home/>}
+      {currentView === '/roomAddition' && <Home/>}
+      {currentView === '/hotelProjectImprovmentPlans' && <Home/>}
+      {currentView === '/delinquentSalesTaxAudition' && <Home/>}
+      {currentView === '/aboutUs' && <Home/>}
+      {currentView === '/gallery' && <Home/>}
+      {currentView === '/blog' && <Home/>}
+      {currentView === '/cityCode' && <Home/>}
+      {currentView === '/avaliableHomes' && <Home/>}
+      {currentView === '/contact' && <Home/>}
+      {currentView === '/search' && <Home/>}
+          {/* <RouterProvider router={router}/> */}
         
 
 
