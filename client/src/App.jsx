@@ -3,7 +3,7 @@ import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterPro
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Home } from './components/Home/Home';
-import { useRouteContext } from './components/util/routingContext/routeContext';
+import { useRouteContext } from './util/routingContext/routeContext';
 // import {Services} from './pages/admin/services'
 // import ProtectedRoutes from './pages/ProtectedRoutes/protectedRoutes';
 

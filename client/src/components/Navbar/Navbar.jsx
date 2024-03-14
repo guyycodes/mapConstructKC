@@ -23,11 +23,11 @@ import { FULL_REHABS,
   GALLERY, BLOG, CITY_CODE, 
   AVALIABLE_HOMES, 
   CONTACT,
-  SEARCH  } from '../util/actions/actions';
+  SEARCH  } from '../../util/actions/actions';
 import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import logo from '../../assets/images/LOGO.jpg';
-import { useRouteContext } from '../util/routingContext/routeContext';
+import { useRouteContext } from '../../util/routingContext/routeContext';
 
 // The Navbar functional component definition
 export const Navbar = () => {
@@ -66,7 +66,7 @@ export const Navbar = () => {
       dispatch({ type: CONTACT, payload: clickedText === 'Contact' ? 1 : 0 });
       dispatch({ type: SEARCH, payload: clickedText === 'Search' ? 1 : 0 });
   };
-  
+
   return (
     <>
     <Box bg="gray.100" display="flex" py={4} zIndex={3}>

@@ -8,7 +8,7 @@ import { BsGraphUpArrow } from "react-icons/bs";
 
 export const About = () => {
   return (
-    <Box id="services" py={16}>
+    <Box py={16}>
       <Container maxW="container.lg">
         <Heading as="h3" textAlign="center" mb={16}>
           OUR SERVICES
