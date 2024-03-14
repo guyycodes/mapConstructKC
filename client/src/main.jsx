@@ -8,9 +8,9 @@ import { RouteContextProvider } from './components/util/routingContext/routeCont
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouteContextProvider>
-    <ChakraProvider theme={Theme}>
-        <App />
-    </ChakraProvider>
-      </RouteContextProvider>
+      <ChakraProvider theme={Theme}>
+          <App />
+      </ChakraProvider>
+    </RouteContextProvider>
   </React.StrictMode>,
 )

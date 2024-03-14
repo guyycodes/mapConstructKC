@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Heading, Text, Flex } from '@chakra-ui/react';
 import { Navbar } from '../Navbar/Navbar';
 import { ImageCarousel } from '../Carousel/Carousel';
+import { About } from '../About/About';
 import { PromoSection } from '../Promo/Promo';
 import { WorkSection } from '../OurWork/OurWork';
 import { Contact } from '../Contact/Contact';
@@ -21,6 +22,7 @@ export const Home = () => {
     <Flex flexDirection='column'>
       <Navbar />
       <ImageCarousel />
+      <About />
       <PromoSection/>
       <WorkSection />
       <Contact />
