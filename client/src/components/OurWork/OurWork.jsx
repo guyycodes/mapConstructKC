@@ -121,19 +121,14 @@ export const WorkSection = () => {
       </Text>
       <Grid templateColumns="repeat(4, 1fr)" gap={4}>
         {currentSet.map(({ path, key }, index) => (
-          <AnimatePresence key={key}>
+          <AnimatePresence key={key} >
             <motion.div
-            //***TO-DO fix the timing issue, it causes a bug on page refresh */
-
-            //   initial={{ opacity: 0, x: -100 }}
-            //   animate={{
-            //     opacity: animateSet.has(index) ? 0.1 : 1, // .has is a method of the set() object, we are checking for the randomly selected index
-            //     // x: 0,
-            //   }}
-            //   exit={{ opacity: 100, x: 0 }}
-            //   transition={{ duration: 0.5 }}
-            >
-
+                  key={key}
+                  // initial={{ opacity: 0 }}
+                  // animate={{ opacity: 1 }}
+                  // exit={{ opacity: 0 }}
+                  whileHover={{ scale: 2.05, zIndex:'5' }}
+                >
             {/* AspectRatio keeps the images in a correct aspect ratio. */}
               <AspectRatio ratio={1}>
                 <Image

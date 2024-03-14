@@ -2,14 +2,22 @@ import React, { useEffect, useState} from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 // import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context';
-import { Home } from './components/Home/Home';
+import { Home } from './views/Home/Home';
 import { useRouteContext } from './util/routingContext/routeContext';
 // import {Services} from './pages/admin/services'
 // import ProtectedRoutes from './pages/ProtectedRoutes/protectedRoutes';
-
-
-
-
+import { About } from './views/About/AboutServices';
+import { FullRehabs } from './views/FullRehabs/FullRehabs'
+import { PromoSection } from './views/Promo/Promo';
+import { InvestmentPropertyAnalysis } from './views/InvestmentPropertyAnalysis/InvestmentProperty'
+import { Kitchens } from './views/Kitchen/kitchens';
+import { Bathroom } from './views/Bathroom/Bathrooms';
+import { RoomAddition } from './views/RoomAddition/RoomAdditions';
+import { AboutUs } from './views/About/AboutUs/About';
+import { BlogComponent } from './views/Blog/BlogComponent';
+import { HotelProjectComponent } from './views/Commercial/HotelImprovemnt/HotelProjects.jsx'
+import { DelinquentTax } from './views/Commercial/DelinquentSalesTax/DelinquentSalesTax.jsx'
+import { Contact } from './views/Contact/ContactPage.jsx'
   // Set up an Apollo client to point towards graphql backend
 // const httpLink = createHttpLink({
 //   uri: 'http://localhost:3002/graphql', // GraphQL endpoint
@@ -47,9 +55,13 @@ function App() {
     for (const key in context) {
         // Check if the property's value is strictly equal to 1
         if (context[key] === 1) {
-          console.log(`/${key}`)
+          if(key === 'home'){
+            setCurrentView(`/`)
+          }else{
             setCurrentView(`/${key}`)
+          }
         }
+        console.log(currentView)
     }
 };
 
@@ -61,7 +73,7 @@ function App() {
     console.log("useEffect state: ", routeContext);
   }, [routeContext]);
 
-
+// proper routing
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -97,22 +109,24 @@ function App() {
      
       {/* <ApolloProvider client={client}> */}
 
-
-      {currentView === '/' && <Home/>}
-      {currentView === '/fullRehabs' && <Home/>}
-      {currentView === '/investmentPropertyAnalysis' && <Home/>}
-      {currentView === '/kitchen' && <Home/>}
-      {currentView === '/bathroom' && <Home/>}
-      {currentView === '/roomAddition' && <Home/>}
-      {currentView === '/hotelProjectImprovmentPlans' && <Home/>}
-      {currentView === '/delinquentSalesTaxAudition' && <Home/>}
-      {currentView === '/aboutUs' && <Home/>}
+    {/* Sudo routing*/}
+      {currentView === '/' && <Home Component={<About/>} Component2={<PromoSection />}/>}
+      {currentView === '/fullRehabs' && <Home Component={<FullRehabs />}/>}
+      {currentView === '/investmentPropertyAnalysis' && <Home Component={<InvestmentPropertyAnalysis />}/>}
+      {currentView === '/kitchen' && <Home Component={<Kitchens />}/>}
+      {currentView === '/bathroom' && <Home Component={<Bathroom />}/>}
+      {currentView === '/roomAddition' && <Home Component={<RoomAddition />}/>}
+      {currentView === '/hotelProjectImprovmentPlans' && <Home Component={<HotelProjectComponent />}/>}
+      {currentView === '/delinquentSalesTaxAudition' && <Home Component={<DelinquentTax />}/>}
+      {currentView === '/aboutUs' && <Home Component={<AboutUs />} componentBehavior={"DontRenderWorkSection"}/>}
       {currentView === '/gallery' && <Home/>}
-      {currentView === '/blog' && <Home/>}
+      {currentView === '/blog' && <Home Component={<BlogComponent />}/>}
       {currentView === '/cityCode' && <Home/>}
       {currentView === '/avaliableHomes' && <Home/>}
-      {currentView === '/contact' && <Home/>}
+      {currentView === '/contact' && <Home Component={<Contact />} componentBehavior={"DontRenderWorkSection"}/>}
       {currentView === '/search' && <Home/>}
+
+      {/* Proper Routing */}
           {/* <RouterProvider router={router}/> */}
         
 

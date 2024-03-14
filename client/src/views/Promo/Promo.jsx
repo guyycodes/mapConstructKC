@@ -1,11 +1,12 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, Image, Stack } from '@chakra-ui/react';
 import logo from '/assets/images/logo2.png';
+import { CustomButton } from '../../util/buttons/CustomButtons';
 
 export const PromoSection = () => {
   return (
     <Box bg="gray.100" py={16}>
-      <Container maxW="auto" justifyContent='center'>
+      <Container maxW="container.lg">
         <Stack direction={['column', 'row']} spacing={8} align="center" >
           <Box flex={1}>
             <Heading as="h3" size="lg" mb={4}>
@@ -21,31 +22,12 @@ export const PromoSection = () => {
               <br />
               If you can dream it, we can build it. Building a Better Kansas City with MAP Construct, LLC.
             </Text>
-            <Button
-                colorScheme="black"
-                leftIcon={<i className="fa fa-th" />}
-                size="lg"
-                borderRadius="full"
-                px={8}
-                py={6}
-                background="black"
-                fontWeight="bold"
-                textTransform="uppercase"
-                letterSpacing="wide"
-                boxShadow="md"
-                transition="all 0.2s"
-                _hover={{
-                    transform: 'scale(1.05)',
-                    boxShadow: 'lg',
-                }}
-                >
-                Learn More
-            </Button>
+            <CustomButton children={'Learn More'} onClick={() => console.log('Button clicked')}/>
           </Box>
           <Box flex={1}>
             <Image
               src={logo}
-              alt="Buildings"
+              alt="About Us"
               width={350}
               height={350}
               borderRadius="lg"
@@ -56,3 +38,4 @@ export const PromoSection = () => {
     </Box>
   );
 };
+

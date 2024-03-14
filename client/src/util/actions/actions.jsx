@@ -1,3 +1,5 @@
+export const HOME = "HOME"
+
 export const FULL_REHABS = "FULL_REHABS"
 // add comments later
 export const INVESTMENT_PROPERTY_ANALYSIS = "INVESTMENT_PROPERTY_ANALYSIS"

@@ -1,4 +1,4 @@
-import { FULL_REHABS, 
+import {HOME, FULL_REHABS, 
     INVESTMENT_PROPERTY_ANALYSIS, 
     KITCHEN, BATHROOM, ROOM_ADDITION, HOTEL_PROJECT_IMPROVEMENT_PLANS, 
     DELINQUENT_SALES_TAX_AUDITION, ABOUT_US, 
@@ -9,6 +9,9 @@ import { FULL_REHABS,
 
 export const reducer = (state, action) => {
     switch (action.type){
+        case HOME : {
+            return {...state, home: action.payload}
+        }
         case FULL_REHABS : {
             return {...state, fullRehabs: action.payload}
         }

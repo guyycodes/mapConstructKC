@@ -16,7 +16,7 @@ import {
     Drawer,
     useBreakpointValue, // Importing the useBreakpointValue hook for responsive design.
 } from '@chakra-ui/react';
-import { FULL_REHABS, 
+import {HOME, FULL_REHABS, 
   INVESTMENT_PROPERTY_ANALYSIS, 
   KITCHEN, BATHROOM, ROOM_ADDITION, HOTEL_PROJECT_IMPROVEMENT_PLANS, 
   DELINQUENT_SALES_TAX_AUDITION, ABOUT_US, 
@@ -51,6 +51,7 @@ export const Navbar = () => {
     const handleRouting = (clickedText) => {
       // Dispatch actions for each possible navigation item - setting the state in the global context
       // Each dispatch checks if the clicked item matches a specific route, and updates the global state accordingly
+      dispatch({ type: HOME, payload: clickedText === 'Home' ? 1 : 0 });
       dispatch({ type: FULL_REHABS, payload: clickedText === 'Full_Rehabs' ? 1 : 0 });
       dispatch({ type: INVESTMENT_PROPERTY_ANALYSIS, payload: clickedText === 'Investment_Property_Analysis' ? 1 : 0 });
       dispatch({ type: KITCHEN, payload: clickedText === 'Kitchen' ? 1 : 0 });
@@ -78,7 +79,7 @@ export const Navbar = () => {
         </Box>
         <Spacer />
         <Box display={{ base: 'none', md: 'flex' }} flexGrow={1} alignItems="center" justifyContent={'space-evenly'}>
-          <Button variant="ghost" pr={7} fontSize={{ base: '12px', sm: '14px', md: '16px' }} href="index.html">
+          <Button onClick={() => handleRouting("Home")} variant="ghost" pr={7} fontSize={{ base: '12px', sm: '14px', md: '16px' }} href="index.html">
             Home
           </Button>
           {/* Residential menu with dropdown options. */}
