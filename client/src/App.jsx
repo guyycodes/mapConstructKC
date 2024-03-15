@@ -14,6 +14,7 @@ import { Kitchens } from './views/Kitchen/kitchens';
 import { Bathroom } from './views/Bathroom/Bathrooms';
 import { RoomAddition } from './views/RoomAddition/RoomAdditions';
 import { AboutUs } from './views/About/AboutUs/About';
+import { WorkStatistics } from './components/Statistics/Stats.jsx';
 import { BlogComponent } from './views/Blog/BlogComponent';
 import { HotelProjectComponent } from './views/Commercial/HotelImprovemnt/HotelProjects.jsx'
 import { DelinquentTax } from './views/Commercial/DelinquentSalesTax/DelinquentSalesTax.jsx'
@@ -110,21 +111,21 @@ function App() {
       {/* <ApolloProvider client={client}> */}
 
     {/* Sudo routing*/}
-      {currentView === '/' && <Home Component={<About/>} Component2={<PromoSection />}/>}
-      {currentView === '/fullRehabs' && <Home Component={<FullRehabs />}/>}
-      {currentView === '/investmentPropertyAnalysis' && <Home Component={<InvestmentPropertyAnalysis />}/>}
-      {currentView === '/kitchen' && <Home Component={<Kitchens />}/>}
-      {currentView === '/bathroom' && <Home Component={<Bathroom />}/>}
-      {currentView === '/roomAddition' && <Home Component={<RoomAddition />}/>}
-      {currentView === '/hotelProjectImprovmentPlans' && <Home Component={<HotelProjectComponent />}/>}
+      {currentView === '/' && <Home Component={<About />} Component2={<PromoSection />} Component3={<WorkStatistics />} componentBehavior={"RenderTestimonials"} />}
+      {currentView === '/fullRehabs' && <Home Component={<FullRehabs />} />}
+      {currentView === '/investmentPropertyAnalysis' && <Home Component={<InvestmentPropertyAnalysis />} />}
+      {currentView === '/kitchen' && <Home Component={<Kitchens />} />}
+      {currentView === '/bathroom' && <Home Component={<Bathroom />} />}
+      {currentView === '/roomAddition' && <Home Component={<RoomAddition />} />}
+      {currentView === '/hotelProjectImprovmentPlans' && <Home Component={<HotelProjectComponent />} />}
       {currentView === '/delinquentSalesTaxAudition' && <Home Component={<DelinquentTax />}/>}
-      {currentView === '/aboutUs' && <Home Component={<AboutUs />} componentBehavior={"DontRenderWorkSection"}/>}
+      {currentView === '/aboutUs' && <Home Component={<AboutUs />} componentBehavior={"DontRenderWorkSection"} />}
       {currentView === '/gallery' && <Home/>}
-      {currentView === '/blog' && <Home Component={<BlogComponent />}/>}
-      {currentView === '/cityCode' && <Home/>}
-      {currentView === '/avaliableHomes' && <Home/>}
-      {currentView === '/contact' && <Home Component={<Contact />} componentBehavior={"DontRenderWorkSection"}/>}
-      {currentView === '/search' && <Home/>}
+      {currentView === '/blog' && <Home Component={<BlogComponent />} />}
+      {currentView === '/cityCode' && <Home />}
+      {currentView === '/avaliableHomes' && <Home />}
+      {currentView === '/contact' && <Home Component={<Contact />} componentBehavior={"DontRenderWorkSection"} />}
+      {currentView === '/search' && <Home />}
 
       {/* Proper Routing */}
           {/* <RouterProvider router={router}/> */}

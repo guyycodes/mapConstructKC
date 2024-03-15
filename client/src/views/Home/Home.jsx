@@ -2,11 +2,12 @@ import React from 'react';
 import { Flex } from '@chakra-ui/react';
 import { Navbar } from '../../components/Navbar/Navbar';
 import { ImageCarousel } from '../../components/Carousel/Carousel';
+import { CustomerReviews } from '../../components/Testimonials/Reviews'; 
 import { WorkSection } from '../../components/OurWork/OurWork';
 import { Contact } from '../../components/Contact/Contact';
 import { Footer } from '../../components/Footer/Footer';
 
-export const Home = ( { Component, Component2, componentBehavior  } ) => {
+export const Home = ( { Component, Component2, Component3, componentBehavior  } ) => {
     return (
     
     <Flex flexDirection='column'>
@@ -14,7 +15,10 @@ export const Home = ( { Component, Component2, componentBehavior  } ) => {
       <ImageCarousel />
       {Component}
       {Component2 ? Component2 : null}
-      {componentBehavior ? null : <WorkSection />}
+      {componentBehavior === "RenderTestimonials" ? <CustomerReviews/> : null}
+      {Component3 ? Component3 : null}
+      {componentBehavior === "DontRenderWorkSection" ? null : <WorkSection />}
+
       <Contact />
       <Footer />
     </Flex>
