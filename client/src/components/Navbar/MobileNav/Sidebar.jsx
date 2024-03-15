@@ -15,9 +15,11 @@ import {
     Link,
 } from '@chakra-ui/react';
 
-export const Sidebar = () => {
+export const Sidebar = ( { handleRouting } ) => {
 
-  return (
+
+  
+    return (
     <>
     <DrawerOverlay />
     <DrawerContent bg="black" color="white">
@@ -38,19 +40,19 @@ export const Sidebar = () => {
             </AccordionButton>
             <AccordionPanel pb={4}>
             <VStack align="stretch">
-                <Link  href="FullRehabs/index.html">
-                Full Rehabs
+                <Link onClick={(e) => {handleRouting("Full_Rehabs")}}>
+                    Full Rehabs
                 </Link>
-                <Link  href="InvestmentPropertyAnalysis/index.html">
+                <Link onClick={(e) => {handleRouting("Investment_Property_Analysis")}}>
                 Investment Property Analysis
                 </Link>
-                <Link href="Kitchen/index.html">
+                <Link onClick={(e) => {handleRouting("Kitchen")}}>
                 Kitchen
                 </Link>
-                <Link href="Bathroom/index.html">
+                <Link onClick={(e) => {handleRouting("Bathroom")}}>
                 Bathroom
                 </Link>
-                <Link href="RoomAddition/index.html">
+                <Link onClick={(e) => {handleRouting("Room_Addition")}}>
                 Room Addition
                 </Link>
             </VStack>
@@ -66,10 +68,10 @@ export const Sidebar = () => {
             </AccordionButton>
             <AccordionPanel pb={4}>
             <VStack align="stretch">
-                <Link  href="HotelProjectImprovementPlans/index.html">
+                <Link  onClick={(e) => {handleRouting("Hotel_Project_Improvement_Plans")}}>
                 Hotel Project Improvement Plans
                 </Link>
-                <Link  href="DelinquentSalesTaxAudition/index.html">
+                <Link  onClick={(e) => {handleRouting("Delinquent_Sales_Tax_Audition")}}>
                 Delinquent Sales Tax Audition
                 </Link>
             </VStack>
@@ -85,13 +87,13 @@ export const Sidebar = () => {
             </AccordionButton>
             <AccordionPanel pb={4}>
                 <VStack align="stretch">
-                <Link href="About/index.html" isExternal>
+                <Link onClick={(e) => {handleRouting("About_Us")}}>
                     About Us
                 </Link>
-                <Link href="Gallery/index.html" isExternal>
+                <Link onClick={(e) => {handleRouting("Gallery")}}>
                     Gallery
                 </Link>
-                <Link href="Blog/index.html" isExternal>
+                <Link onClick={(e) => {handleRouting("Blog")}}>
                     Blog
                 </Link>
                 </VStack>
@@ -99,17 +101,17 @@ export const Sidebar = () => {
             
         </AccordionItem>
         <AccordionItem>
-            <Link href="/permits-and-city-code-management" isExternal>
+            <Link onClick={(e) => {handleRouting("City_Code")}}>
                 <Box p={4} flex="1" textAlign="left" borderBottomWidth="1px">
                     Permits & City Code Management
                 </Box>
             </Link>
-            <Link href="/available-homes" isExternal>
+            <Link onClick={(e) => {handleRouting("Available_Homes")}}>
                 <Box p={4} flex="1" textAlign="left" borderBottomWidth="1px">
                     Available Homes
                 </Box>
             </Link>
-            <Link href="/contact-us" isExternal>
+            <Link onClick={(e) => {handleRouting("Contact")}}>
                 <Box p={4} flex="1" textAlign="left" borderBottomWidth="1px">
                     Contact Us
                 </Box>

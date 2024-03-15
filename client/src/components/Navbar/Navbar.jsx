@@ -145,7 +145,7 @@ export const Navbar = () => {
       </Flex>
 
       <Drawer isOpen={isOpen} placement="top" onClose={onClose} >
-        {isOpen && <Sidebar />} {/*Render the sidebar component when the drawer is open.*/}
+        {isOpen && <Sidebar handleRouting={handleRouting}/>} {/*Render the sidebar component when the drawer is open.*/}
         </Drawer>
     </Box>
     </>
