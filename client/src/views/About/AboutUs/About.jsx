@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Heading, Text, Container, Image, Stack } from '@chakra-ui/react';
 import { CustomButton } from '../../../util/buttons/CustomButtons';
 
 export const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
   return (
     <Box bg="gray.100" py={16} px={4}>
       <Container maxW="container.lg">

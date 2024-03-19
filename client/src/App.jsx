@@ -19,6 +19,9 @@ import { BlogComponent } from './views/Blog/BlogComponent';
 import { HotelProjectComponent } from './views/Commercial/HotelImprovemnt/HotelProjects.jsx'
 import { DelinquentTax } from './views/Commercial/DelinquentSalesTax/DelinquentSalesTax.jsx'
 import { Contact } from './views/Contact/ContactPage.jsx'
+import { PaymentPortal } from './components/Payments/Payment.jsx'
+import { AllCommercial } from './views/CommercialServices/AllCommercialServices.jsx'
+import { ResidentialSection } from './views/ResidentialServices/Residential.jsx'
   // Set up an Apollo client to point towards graphql backend
 // const httpLink = createHttpLink({
 //   uri: 'http://localhost:3002/graphql', // GraphQL endpoint
@@ -125,8 +128,10 @@ function App() {
       {currentView === '/cityCode' && <Home />}
       {currentView === '/avaliableHomes' && <Home />}
       {currentView === '/contact' && <Home Component={<Contact />} componentBehavior={"DontRenderWorkSection"} />}
-      {currentView === '/search' && <Home />}
 
+      {currentView === '/paymentGateway' && <Home Component={<PaymentPortal />} />}
+      {currentView === '/commercialServices' && <Home Component={<AllCommercial />} />}
+      {currentView === '/residential' && <Home Component={<ResidentialSection/>} />}
       {/* Proper Routing */}
           {/* <RouterProvider router={router}/> */}
         

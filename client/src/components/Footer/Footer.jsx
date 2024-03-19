@@ -1,6 +1,17 @@
 import React from 'react';
 import { Box, Flex, Heading, Text, Link, UnorderedList, ListItem, Icon } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaSnapchat, FaPinterestP, FaTwitter, FaLinkedin, FaArrowUp } from 'react-icons/fa';
+import { useRouteContext } from '../../util/routingContext/routeContext';
+import {
+  HOME, 
+  RESIDENTIAL, 
+  ABOUT_US,
+  COMMERCIAL_SERVICES, 
+  GALLERY, 
+  BLOG, 
+  PAYMENT_GATEWAY,  
+  AVALIABLE_HOMES
+} from '../../util/actions/actions';
 
 export const Footer = () => {
       // Function to smoothly scroll to the top
@@ -10,6 +21,25 @@ export const Footer = () => {
       top: 0, // Scroll to the top of the page
       behavior: 'smooth', // Enable smooth scrolling
     });
+  };
+
+
+
+   // Accessing the context's dispatch function to update global state its essential to use dispatch from the context or it will only update locally
+    const { dispatch } = useRouteContext();
+
+    // Function to handle routing based on the navbar item clicked
+    const handleRouting = (clickedText) => {
+      // Dispatch actions for each possible navigation item - setting the state in the global context
+      // Each dispatch checks if the clicked item matches a specific route, and updates the global state accordingly
+      dispatch({ type: HOME, payload: clickedText === 'Home' ? 1 : 0 });
+      dispatch({ type: RESIDENTIAL, payload: clickedText === 'Residential' ? 1 : 0 });
+      dispatch({ type: ABOUT_US, payload: clickedText === 'About_Us' ? 1 : 0 });
+      dispatch({ type: COMMERCIAL_SERVICES, payload: clickedText === 'CommercialServices' ? 1 : 0 });
+      dispatch({ type: GALLERY, payload: clickedText === 'Gallery' ? 1 : 0 });
+      dispatch({ type: BLOG, payload: clickedText === 'Blog' ? 1 : 0 });
+      dispatch({ type: AVALIABLE_HOMES, payload: clickedText === 'Available_Homes' ? 1 : 0 });
+      dispatch({ type: PAYMENT_GATEWAY, payload: clickedText === 'paymentGateway' ? 1 : 0 });
   };
 
   return (
@@ -39,18 +69,20 @@ export const Footer = () => {
         </Box>
         <Box width={['100%', '50%', '25%']} mb={8}>
           <UnorderedList styleType="none">
-            <ListItem><Link href="index.html">HOME</Link></ListItem>
-            <ListItem><Link href="Residential/home.html">RESIDENTIAL SERVICES</Link></ListItem>
-            <ListItem><Link href="About/home.html">ABOUT US</Link></ListItem>
-            <ListItem><Link href="Commercial/home.html">COMMERCIAL SERVICES</Link></ListItem>
+          <ListItem>
+          <Link onClick={() => handleRouting("Home")}>HOME</Link>
+        </ListItem>
+            <ListItem><Link onClick={() => handleRouting("Residential")}>RESIDENTIAL SERVICES</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("About_Us")}>ABOUT US</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("CommercialServices")}>COMMERCIAL SERVICES</Link></ListItem>
           </UnorderedList>
         </Box>
         <Box width={['100%', '50%', '25%']} mb={8}>
           <UnorderedList styleType="none">
-            <ListItem><Link href="Gallery/home.html">GALLERY</Link></ListItem>
-            <ListItem><Link href="Blog/home.html">BLOG</Link></ListItem>
-            <ListItem><Link href="Available Homes/home.html">AVAILABLE HOMES</Link></ListItem>
-            <ListItem><Link href="https://buy.stripe.com/00g7uh0FNeHZ47KcMM">PAYMENT PORTAL</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("Gallery")}>GALLERY</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("Blog")}>BLOG</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("Available_Homes")}>AVAILABLE HOMES</Link></ListItem>
+            <ListItem><Link onClick={() => handleRouting("paymentGateway")}>PAYMENT PORTAL</Link></ListItem>
           </UnorderedList>
         </Box>
       </Flex>

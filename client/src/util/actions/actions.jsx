@@ -27,3 +27,10 @@ export const AVALIABLE_HOMES = "AVALIABLE_HOMES"
 export const CONTACT = "CONTACT"
 
 export const SEARCH = "SEARCH"
+///
+export const COMMERCIAL_SERVICES = "COMMERCIAL_SERVICES"
+
+export const PAYMENT_GATEWAY = "PAYMENT_GATEWAY"
+
+export const RESIDENTIAL = "RESIDENTIAL"
+

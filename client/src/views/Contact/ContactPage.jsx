@@ -19,5 +19,3 @@ export const Contact = () => {
     </Box>
   );
 };
-
-export default Contact;

@@ -20,7 +20,10 @@ const initialState = {
         avaliableHomes: "",
         contact: "",
         search: "",
-        home: ""
+        home: "",
+        paymentGateway: "",
+        residential: "",
+        commercialServices: "",
     }
   };
 

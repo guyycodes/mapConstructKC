@@ -34,7 +34,7 @@ export const Contact = () => {
             <Input type="email" placeholder="Email" name="Email" required />
             <Input type="text" placeholder="Subject" name="Subject" required />
             <Textarea placeholder="Message" name="Message" required height="200px" />
-            <Button leftIcon={<FaPaperPlane />} colorScheme="black" type="submit">
+            <Button leftIcon={<FaPaperPlane />} colorScheme="black" type="submit" color={'gray'}>
               SEND MESSAGE
             </Button>
           </Stack>

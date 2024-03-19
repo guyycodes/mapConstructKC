@@ -2,23 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { Box, Heading, Text, Spinner, Center, Stack, Container, GridItem, Grid  } from '@chakra-ui/react';
 
 const dummyData = [
+  
     {
-      id: 1,
-      subject: 'My Amazing Blog Post1',
-      date: '2/15/2024',
-      body:  `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Quaerat asperiores cumque consequatur doloremque ea recusandae 
-      veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
-      cupiditate sequi sed doloribus, beatae suscipit dolor!`,
+        id: 1,
+        subject: 'My Amazing Blog Post1',
+        date: '2/15/2024',
+        body:  `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quaerat asperiores cumque consequatur doloremque ea recusandae 
+        veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
+        cupiditate sequi sed doloribus, beatae suscipit dolor!`,
     },
     {
-      id: 2,
-      subject: 'My Amazing Blog Post2',
-      date: '3/9/2024',
-      body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Quaerat asperiores cumque consequatur doloremque ea recusandae 
-      veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
-      cupiditate sequi sed doloribus, beatae suscipit dolor!`,
+        id: 2,
+        subject: 'My Amazing Blog Post2',
+        date: '3/9/2024',
+        body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quaerat asperiores cumque consequatur doloremque ea recusandae 
+        veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
+        cupiditate sequi sed doloribus, beatae suscipit dolor!`,
     },
     {
         id: 3,
@@ -39,7 +40,7 @@ const dummyData = [
         cupiditate sequi sed doloribus, beatae suscipit dolor!`,
     },
     {
-        id: 1,
+        id: 5,
         subject: 'My Amazing Blog Post5',
         date: '2/15/2024',
         body:  `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -48,7 +49,7 @@ const dummyData = [
         cupiditate sequi sed doloribus, beatae suscipit dolor!`,
       },
       {
-        id: 2,
+        id: 6,
         subject: 'My Amazing Blog Post6',
         date: '3/9/2024',
         body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -57,23 +58,24 @@ const dummyData = [
         cupiditate sequi sed doloribus, beatae suscipit dolor!`,
       },
       {
-          id: 3,
-          subject: 'My Amazing Blog Post7',
-          date: '3/17/2024',
-          body:  `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quaerat asperiores cumque consequatur doloremque ea recusandae 
-          veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
-          cupiditate sequi sed doloribus, beatae suscipit dolor!`,
+        id: 7,
+        subject: 'My Amazing Blog Post7',
+        date: '3/17/2024',
+        body:  `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quaerat asperiores cumque consequatur doloremque ea recusandae 
+        veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
+        cupiditate sequi sed doloribus, beatae suscipit dolor!`,
       },
       {
-          id: 4,
-          subject: 'My Amazing Blog Post8',
-          date: '3/25/2024',
-          body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Quaerat asperiores cumque consequatur doloremque ea recusandae 
-          veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
-          cupiditate sequi sed doloribus, beatae suscipit dolor!`,
+        id: 8,
+        subject: 'My Amazing Blog Post8',
+        date: '3/25/2024',
+        body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quaerat asperiores cumque consequatur doloremque ea recusandae 
+        veniam nesciunt eum reprehenderit iure! Inventore deserunt error 
+        cupiditate sequi sed doloribus, beatae suscipit dolor!`,
       }
+      
   ];
 export const BlogComponent = () => {
   const [blogData, setBlogData] = useState(dummyData);

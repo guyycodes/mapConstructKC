@@ -16,14 +16,21 @@ import {
     Drawer,
     useBreakpointValue, // Importing the useBreakpointValue hook for responsive design.
 } from '@chakra-ui/react';
-import {HOME, FULL_REHABS, 
+import {
+  HOME, 
+  FULL_REHABS, 
   INVESTMENT_PROPERTY_ANALYSIS, 
-  KITCHEN, BATHROOM, ROOM_ADDITION, HOTEL_PROJECT_IMPROVEMENT_PLANS, 
-  DELINQUENT_SALES_TAX_AUDITION, ABOUT_US, 
+  KITCHEN, 
+  BATHROOM, 
+  ROOM_ADDITION, 
+  HOTEL_PROJECT_IMPROVEMENT_PLANS, 
+  DELINQUENT_SALES_TAX_AUDITION, 
+  ABOUT_US, 
   GALLERY, BLOG, CITY_CODE, 
   AVALIABLE_HOMES, 
   CONTACT,
-  SEARCH  } from '../../util/actions/actions';
+  SEARCH
+  } from '../../util/actions/actions';
 import { Sidebar } from './MobileNav/Sidebar';
 import { HamburgerIcon, SearchIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import logo from '/assets/images/LOGO.jpg';
