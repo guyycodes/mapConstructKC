@@ -22,6 +22,9 @@ import { Contact } from './views/Contact/ContactPage.jsx'
 import { PaymentPortal } from './components/Payments/Payment.jsx'
 import { AllCommercial } from './views/CommercialServices/AllCommercialServices.jsx'
 import { ResidentialSection } from './views/ResidentialServices/Residential.jsx'
+import { AvailableHomes } from './views/AvailableHomes/HomeCards/HomeCardsComponent.jsx';
+import { ChatContainer } from './components/ChatBot/ChatContainer.jsx';
+
   // Set up an Apollo client to point towards graphql backend
 // const httpLink = createHttpLink({
 //   uri: 'http://localhost:3002/graphql', // GraphQL endpoint
@@ -126,12 +129,13 @@ function App() {
       {currentView === '/gallery' && <Home/>}
       {currentView === '/blog' && <Home Component={<BlogComponent />} />}
       {currentView === '/cityCode' && <Home />}
-      {currentView === '/avaliableHomes' && <Home />}
+      {currentView === '/avaliableHomes' && <Home Component={<AvailableHomes />} />}
       {currentView === '/contact' && <Home Component={<Contact />} componentBehavior={"DontRenderWorkSection"} />}
-
       {currentView === '/paymentGateway' && <Home Component={<PaymentPortal />} />}
       {currentView === '/commercialServices' && <Home Component={<AllCommercial />} />}
       {currentView === '/residential' && <Home Component={<ResidentialSection/>} />}
+
+      <ChatContainer/>
       {/* Proper Routing */}
           {/* <RouterProvider router={router}/> */}
         

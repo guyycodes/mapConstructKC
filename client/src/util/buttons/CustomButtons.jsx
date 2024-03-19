@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react'; // Assuming you're using Chakra UI
 
-export const CustomButton = ({ onClick, children }) => {
+export const CustomButton = ({ onClick, children, color }) => {
   return (
     <Button
       onClick={onClick}
-      colorScheme="black"
+      colorScheme={color?'gray':'black'}
       leftIcon={<i className="fa fa-th" />}
       size="lg"
       borderRadius="full"
       px={8}
       py={6}
-      background="black"
+      background={color?color:'black'}
       fontWeight="bold"
       textTransform="uppercase"
       letterSpacing="wide"
