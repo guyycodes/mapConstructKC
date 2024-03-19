@@ -136,7 +136,7 @@ export const Navbar = () => {
             {ContactButtonText}
           </Button>
           <InputGroup size="sm">
-            <Input type="search" onClick={() => handleRouting("Search")} placeholder="Search" />
+            {/* <Input type="search" onClick={() => handleRouting("Search")} placeholder="Search" /> */}
             <InputRightElement>
               <IconButton icon={<SearchIcon />} size="sm" variant="ghost" />
             </InputRightElement>
