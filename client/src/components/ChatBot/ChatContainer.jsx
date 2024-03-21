@@ -35,9 +35,9 @@ export const ChatContainer = () =>{
     return (
       <Box
         as='aside'
-        position='absolute'
+        position='fixed'
         zIndex='banner'
-        bottom='90'
+        bottom='10'
         width='auto'
         height='auto'
         right='0'
@@ -59,6 +59,7 @@ export const ChatContainer = () =>{
                   transition: 'all .25s ease-in-out',
                   opacity: isHovered ? 1 : 0,
                   transform: isHovered ? 'scale(1)' : 'scale(0)',
+                  display: showChatWindow ? 'none' : 1,
                 },
                 '.fcAboutIcon': {
                   clipPath: 'circle(75% at center)', // Initial clipPath value
@@ -87,7 +88,7 @@ export const ChatContainer = () =>{
               }}
             >
             <FcAbout className="fcAboutIcon" size="8rem" style={{ transform: 'scaleX(-1)' }} />
-            <FcAssistant className="assistantIcon" size="4rem" color="blue" />
+            <FcAssistant className="assistantIcon" size="4rem" color="blue"  />
             <Button className="chatNowText" onClick={handleChatNowClick}>
             Chat with us now👋
           </Button>

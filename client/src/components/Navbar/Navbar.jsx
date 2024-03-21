@@ -135,12 +135,12 @@ export const Navbar = () => {
           <Button variant="ghost" mr={4} onClick={() => handleRouting("Contact")}>
             {ContactButtonText}
           </Button>
-          <InputGroup size="sm">
-            {/* <Input type="search" onClick={() => handleRouting("Search")} placeholder="Search" /> */}
+          {/* <InputGroup size="sm">
+            <Input type="search" onClick={() => handleRouting("Search")} placeholder="Search" />
             <InputRightElement>
               <IconButton icon={<SearchIcon />} size="sm" variant="ghost" />
             </InputRightElement>
-          </InputGroup>
+          </InputGroup> */}
         </Box>
         <IconButton
           display={{ base: 'flex', md: 'none' }}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Flex, Heading, Text, Link, UnorderedList, ListItem, Icon } from '@chakra-ui/react';
+import React, {useState} from 'react';
+import { Box, Flex, Heading, Text, Link, UnorderedList, ListItem, Icon, Modal, ModalBody, ModalCloseButton, ModalOverlay, ModalHeader, ModalContent } from '@chakra-ui/react';
 import { FaFacebook, FaInstagram, FaSnapchat, FaPinterestP, FaTwitter, FaLinkedin, FaArrowUp } from 'react-icons/fa';
 import { useRouteContext } from '../../util/routingContext/routeContext';
 import {
@@ -14,6 +14,7 @@ import {
 } from '../../util/actions/actions';
 
 export const Footer = () => {
+  const [isOpen, setIsOpen] = useState(false);
       // Function to smoothly scroll to the top
   const scrollToTop = (e) => {
     e.preventDefault(); // Prevent the default anchor tag behavior
@@ -23,7 +24,13 @@ export const Footer = () => {
     });
   };
 
+  const onOpen = () =>{
+    setIsOpen(true);
+  }
 
+  const onClose = () =>{
+    setIsOpen(false);
+  }
 
    // Accessing the context's dispatch function to update global state its essential to use dispatch from the context or it will only update locally
     const { dispatch } = useRouteContext();
@@ -43,29 +50,44 @@ export const Footer = () => {
   };
 
   return (
+    <>
     <Box as="footer" bg="black" color="white" py={16} textAlign="center">
       <Flex flexWrap="wrap" justifyContent="center">
         <Box width={['100%', '50%', '25%']} mb={8}>
-          <Heading as="h4" size="md" mb={2}>Map Construct KC</Heading>
-          <Text>
-            <Link href="https://www.google.com/maps/place/800+W+75th+St,+Kansas+City,+MO+64114" target="_blank" isExternal>
-              800 W 75th St, Kansas City, MO 64114
-            </Link>
-          </Text>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.9947855522455!2d-94.60138572405863!3d38.992615371703856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0efecd9c0a4c9%3A0x7c024479f12b6582!2sMAP%20Construct!5e0!3m2!1sen!2sus!4v1708709649421!5m2!1sen!2sus"
-            width="200"
-            height="150"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <Heading as="h4" size="md" mb={2}>
+            Map Construct KC
+          </Heading>
+            <Text>
+              <Link
+                href="https://www.google.com/maps/place/800+W+75th+St,+Kansas+City,+MO+64114"
+                target="_blank"
+                isExternal
+              >
+                800 W 75th St, Kansas City, MO 64114
+              </Link>
+            </Text>
+            <Box display="flex" justifyContent="center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.9947855522455!2d-94.60138572405863!3d38.992615371703856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0efecd9c0a4c9%3A0x7c024479f12b6582!2sMAP%20Construct!5e0!3m2!1sen!2sus!4v1708709649421!5m2!1sen!2sus"
+                width="200"
+                height="150"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+          </Box>
         </Box>
         <Box width={['100%', '50%', '25%']} mb={8}>
-          <Heading as="h4" size="md" mb={2}>Contact Us</Heading>
-          <Text>info@mapconstructkc.com</Text>
-          <Text>(512) 994-9027</Text>
+          <Heading as="h4" size="md" mb={2}>
+            Contact Us
+          </Heading>
+          <Text>
+            <Link onClick={() => onOpen('email')}>info@mapconstructkc.com</Link>
+          </Text>
+          <Text>
+            <Link onClick={() => onOpen('phone')}>(512) 994-9027</Link>
+          </Text>
         </Box>
         <Box width={['100%', '50%', '25%']} mb={8}>
           <UnorderedList styleType="none">
@@ -103,6 +125,21 @@ export const Footer = () => {
       </Flex>
       <Text mt={4}>© MAP Construct KC, LLC</Text>
     </Box>
+         <Modal isOpen={isOpen} onClose={onClose} isCentered>
+         <ModalOverlay />
+         <ModalContent>
+           <ModalHeader><Text>mapconstructkc</Text></ModalHeader>
+           <ModalCloseButton />
+           <ModalBody>
+       
+               <Text>info@mapconstructkc.com</Text>
+            
+               <Text>(512) 994-9027</Text>
+           
+           </ModalBody>
+         </ModalContent>
+       </Modal>
+       </>
   );
 };
 
