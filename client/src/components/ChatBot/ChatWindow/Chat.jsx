@@ -1,19 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Input, Button, Text, VStack, Heading, Spinner } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import path from "path";
-import { fileURLToPath } from 'url';
 import axios from 'axios';
-import { config } from "dotenv";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-config({
-  path: '.env'
-});
-
-const API_KEY =  import.meta.env.API_KEY;
 
 const systemMessage = { 
   "role": "system", "content": "Explain things like you're talking to a person who is an investor in real estate."
