@@ -92,7 +92,7 @@ export const ChatWindow = ({ hide }) => {
   
     const config = {
       headers: {
-        "Authorization": `Bearer ${API_KEY}`,
+        "Authorization": `Bearer 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`,
         "Content-Type": "application/json",
       }
     };
